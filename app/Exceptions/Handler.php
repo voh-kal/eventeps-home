@@ -37,5 +37,15 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+
+        $this->renderable(function (\Symfony\Component\HttpKernel\Exception\NotFoundHttpException $e, $request) {
+            if ($request->is('api/*')) {
+                return response()->json([
+                    'message' => 'Route not found.'
+                ], 404);
+            }
+            
+            return response()->view('errors.coming-soon', [], 404);
+        });
     }
 }

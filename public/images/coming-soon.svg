@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background circles -->
+    <circle cx="300" cy="200" r="150" fill="#E3E9FF" opacity="0.5"/>
+    <circle cx="300" cy="200" r="100" fill="#2145FF" opacity="0.2"/>
+    
+    <!-- Gear animation -->
+    <g transform="translate(270,180)">
+        <path d="M30 0C13.4315 0 0 13.4315 0 30C0 46.5685 13.4315 60 30 60C46.5685 60 60 46.5685 60 30C60 13.4315 46.5685 0 30 0ZM30 50C18.9543 50 10 41.0457 10 30C10 18.9543 18.9543 10 30 10C41.0457 10 50 18.9543 50 30C50 41.0457 41.0457 50 30 50Z" fill="#2145FF">
+            <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0 30 30"
+                to="360 30 30"
+                dur="10s"
+                repeatCount="indefinite"/>
+        </path>
+    </g>
+    
+    <!-- Text -->
+    <text x="300" y="300" text-anchor="middle" font-family="Arial" font-size="24" fill="#2145FF">
+        Coming Soon
+    </text>
+</svg>

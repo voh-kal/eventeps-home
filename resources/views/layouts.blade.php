@@ -1084,19 +1084,19 @@
                 <div class="col-lg-3 col-md-3 footer-links">
                     <h4>Key Features</h4>
                     <ul>
-                        <li><a href="#" aria-label="Learn more about Ticketing and Registration">Ticketing & Registration</a></li>
-                        <li><a href="#" aria-label="Learn more about RSVP Management">RSVP Management</a></li>
-                        <li><a href="#" aria-label="Learn more about QR Code Check-ins">QR Code Check-ins</a></li>
-                        <li><a href="#" aria-label="Learn more about Analytics Dashboard">Analytics Dashboard</a></li>
+                        <li><a href="/features/ticketing" aria-label="Learn more about Ticketing and Registration">Ticketing & Registration</a></li>
+                        <li><a href="/features/rsvp" aria-label="Learn more about RSVP Management">RSVP Management</a></li>
+                        <li><a href="/features/qr-code" aria-label="Learn more about QR Code Check-ins">QR Code Check-ins</a></li>
+                        <li><a href="/features/analytics" aria-label="Learn more about Analytics Dashboard">Analytics Dashboard</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#" aria-label="Read Frequently Asked Questions">FAQs</a></li>
-                        <li><a href="#" aria-label="Read Terms of Use">Terms of Use</a></li>
-                        <li><a href="#" aria-label="Explore Use Cases">Use Cases</a></li>
-                        <li><a href="#" aria-label="Read our Privacy Policy">Privacy Policy</a></li>
+                        <li><a href="/faqs" aria-label="Read Frequently Asked Questions">FAQs</a></li>
+                        <li><a href="/terms" aria-label="Read Terms of Use">Terms of Use</a></li>
+                        <li><a href="/use-cases" aria-label="Explore Use Cases">Use Cases</a></li>
+                        <li><a href="/privacy" aria-label="Read our Privacy Policy">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-3 footer-links">
