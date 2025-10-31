@@ -14,6 +14,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'base_url' => env('BASE_URL', 'http://localhost:8000/api/v1/landing-page'),
+    'frontend_url' => env('FRONTEND_URL', 'http://localhost:8000'),
 
     /*
     |--------------------------------------------------------------------------

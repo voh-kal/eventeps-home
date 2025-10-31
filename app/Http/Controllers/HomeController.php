@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
@@ -50,91 +51,19 @@ class HomeController extends Controller
     }
     public function home(Request $request)
     {
-        if ($request->isMethod('post')) {
-
-            $validator = $request->validate([
-                'fname' => 'required',
-                'lname' => 'required',
-                'email' => 'required',
-                'number' => 'required',
-                'industry' => 'required',
-                'region' => 'required',
-                'event_agency' => 'required',
-                'event_size' => 'required',
-            ]);
-            $name = $request->lname . ' ' . $request->fname;
-            $words = explode(' ', $name);
-
-            foreach ($words as $word) {
-                // Count capitals in the word
-                $capitals = preg_match_all('/[A-Z]/', $word);
-
-                // If more than one capital, throw an exception
-                if ($capitals > 1) {
-                    return back()->with('error', 'An error occurred');
-                }
+        
+        $apiResources = [];
+        
+        try {
+            $response = Http::get(config('app.base_url') . '/resources-for-homepage');
+            if ($response->successful()) {
+                $apiResources = $response->json('data') ?? [];
             }
-            $content = $request->input('additional_info');
-            $hasTag = preg_match('/<[^>]*>/', $content) === 1;
-
-            $number = $request->number;
-            $startsWithZero = str_starts_with($number, '0');
-            $length = strlen($number);
-            $isValid = false;
-
-            if ($startsWithZero && $length === 11) {
-                $isValid = true;
-            } elseif (!$startsWithZero && $length === 10) {
-                $isValid = true;
-            }
-
-            if (isset($request->middleName) || $hasTag || !$isValid) {
-                return back()->with('error', 'An error occurred, Check your inputs and try again');
-            }
-            $email = Registration::where(['email' => $request->email])->count();
-
-            if ($email > 0) {
-                return back()->with('error', 'Email already registered');
-            }
-
-            if ($request->check !== 'Yes') {
-                $request->check === 'No';
-            }
-            $registration = Registration::create($request->all());
-            $data = [
-                'name' => $request->lname . ' ' . $request->fname,
-                'email' => $request->email,
-                'number' => $request->number,
-                'industry' => $request->industry,
-                'region' => $request->region,
-                'event_agency' => $request->event_agency,
-                'event_size' => $request->event_size,
-                'add_info' => $request->additional_info ?? 'No additional information',
-            ];
-
-
-            $html = view('email.schedule', compact(
-                'data'
-            ))->render();
-            $bcc = 'larylivlynnxe@gmail.com, oo.abisola@gmail.com';
-            $email = trim(strtolower($request->email));
-            $sub = 'Schedule a Demo';
-            $subject = 'Eventeps';
-
-            // Mail::to(trim(strtolower($request->email)))->bcc(['revolutionize@eventeps.com', 'power@eventeps.com', 'sales@eventeps.com', 'hello@wowconnect.com.ng'])->send(new sendMail($data));
-            $sendMail = $this->tribearcSendMail($sub, $subject, $html, urldecode($email), $bcc);
-
-            if ($sendMail !== 'Message sent!') {
-                return back()->with('error', 'An Error occurred');
-            } else {
-                return back()->with('success', 'Thank you for reaching out');
-            }
+        } catch (\Exception $e) {
+           Log::error('Error fetching API resources: ' . $e->getMessage());
         }
-        //,
-
-        $resources = Resource::take(4)->get();
-
-        return view('home', compact('resources'));
+        
+        return view('home', compact('apiResources'));
     }
 
     public function features()
@@ -294,4 +223,8 @@ class HomeController extends Controller
         return view('single', compact('all', 'user'));
     }
 
+    public function widget()
+    {
+        return view('checkout.widget');
+    }
 }

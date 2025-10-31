@@ -4,39 +4,7 @@
 <!-- Hero Section -->
 <section class="hero-section-feature ">
     <!-- Main Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark main-nav">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="/images/logo.png" alt="TEPS">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link " href="/about">About TEPS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/use-cases">Use Cases</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/faqs">FAQs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/resources">Resources</a>
-                    </li>
-                </ul>
-
-                <div class="d-flex">
-                <a href="/get-started" class="btn btn_outline_light me-2"  target="_blank">Get started</a> 
-                    <a href="https://app.eventeps.com/" class="btn btn_primary" target="_blank">Login</a>                </div>
-            </div>
-        </div>
-    </nav>
+    @include('navbar')
     <div class="d-flex align-items-center text-white">
         <div class="container">
             <div class="row hero-content-feature">
@@ -84,7 +52,7 @@
                                 <h3 class="row1">Comprehensive Event Management Tools</h3>
                                 <p class="mb-0 row2">Effortlessly manage every aspect of your event with TEPS' all-in-one platform. From ticketing and attendee registration to engagement and analytics, we provide powerful tools designed to streamline the planning process and enhance the attendee experience."
                                     This heading and summary highlight the breadth of services offered while emphasizing ease of use and comprehensive management.</p>
-                                    <a href="#" class="get_started mx-0 col-md-4" style="padding: 10px;margin: 20px 0px;">Explore This Tool</a>
+                                <a href="#" class="get_started mx-0 col-md-5" style="padding: 10px;margin: 20px 0px;">Explore This Tool</a>
                             </div>
                         </div>
                     </div>
@@ -92,7 +60,8 @@
                         <div class="card h-100 border-0 ">
                             <div class="card-body p-0">
                                 <div class="">
-                                    <img src="/images/fe1.png" alt="" class="img-fluid">
+
+                                    <img src="/images/fe1.png" alt="Event management dashboard screenshot" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -107,7 +76,7 @@
                             <div class="card-body d-flex flex-column justify-content-center p-4 ">
                                 <h3 class="row1">Enhance Your Event in Real-Time</h3>
                                 <p class="mb-0 row2">Keep the momentum going during your event with features designed to ensure smooth operations and maximize engagement. From seamless check-ins to live polls and surveys, TEPS offers the tools you need to create an interactive and efficient event experience.</p>
-                                <a href="#" class="get_started mx-0 col-md-4" style="padding: 10px;margin: 20px 0px;">Explore This Tool</a>
+                                <a href="#" class="get_started mx-0 col-md-5" style="padding: 10px;margin: 20px 0px;">Explore This Tool</a>
                             </div>
                         </div>
                     </div>
@@ -115,7 +84,7 @@
                         <div class="card h-100 border-0 ">
                             <div class="card-body p-0">
                                 <div class="">
-                                    <img src="/images/fe2.png" alt="" class="img-fluid">
+                                    <img src="/images/fe2.png" alt="Attendee engagement tools screenshot" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -130,7 +99,7 @@
                             <div class="card-body d-flex flex-column justify-content-center p-4 ">
                                 <h3 class="row1">Maximize Impact After the Event</h3>
                                 <p class="mb-0 row2">Your event doesn't end when the last session wraps up. With our post-event features, you can gather valuable feedback, analyze performance metrics, and maintain engagement with your audience through follow-up communications. Turn insights into action and make every event better than the last.</p>
-                                <a href="#" class="get_started mx-0 col-md-4" style="padding: 10px;margin: 20px 0px;">Explore This Tool</a>
+                                <a href="#" class="get_started mx-0 col-md-5" style="padding: 10px;margin: 20px 0px;">Explore This Tool</a>
                             </div>
                         </div>
                     </div>
@@ -138,7 +107,7 @@
                         <div class="card h-100 border-0 ">
                             <div class="card-body p-0">
                                 <div class="">
-                                    <img src="/images/fe3.png" alt="" class="img-fluid">
+                                    <img src="/images/fe3.png" alt="Post-event analytics dashboard screenshot" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -168,7 +137,7 @@
         <div class="row g-4 ">
             <div class="col-md-4 my-3">
                 <div class=" card h-100 border-0" style="    background: #04C2FF;">
-                    <div class="card-body d-flex flex-column justify-content-center p-5 text-center">                       
+                    <div class="card-body d-flex flex-column p-5 text-center">
                         <h3 class="featurerow1 text-white">Custom Event Pages</h3>
                         <a href="#" class="get_started mx-0 " style="padding: 10px;margin: 10px 0px;">Explore This Tool</a>
                     </div>
@@ -176,8 +145,9 @@
             </div>
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
-                    <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev2.png" alt="" style="width: fit-content;">
+                    <div class="card-body d-flex flex-column p-4 pb-0">
+
+                        <img src="/images/ev2.png" alt="Ticketing and attendee types icon" style="width: fit-content;">
                         <h3 class="featurerow1">Ticketing & Attendee Types</h3>
                         <p class="mb-0 featurerow2 col-md-10">Manage various ticket types with options for early bird pricing and discounts.</p>
                     </div>
@@ -185,8 +155,9 @@
             </div>
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
-                    <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev3.png" alt="" style="width: fit-content;">
+                    <div class="card-body d-flex flex-column p-4 pb-0">
+
+                        <img src="/images/ev3.png" alt="RSVP and communication icon" style="width: fit-content;">
                         <h3 class="featurerow1">RSVP & Communication</h3>
                         <p class="mb-0 featurerow2 col-md-10">Simplify RSVP handling and stay connected with attendees via email and WhatsApp.</p>
                     </div>
@@ -196,8 +167,9 @@
 
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
-                    <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev4.png" alt="" style="width: fit-content;">
+                    <div class="card-body d-flex flex-column p-4 pb-0">
+
+                        <img src="/images/ev4.png" alt="Session scheduling icon" style="width: fit-content;">
                         <h3 class="featurerow1">Session Scheduling</h3>
                         <p class="mb-0 featurerow2 col-md-10">Organize speaker schedules and sessions seamlessly, with tools for real-time updates.</p>
                     </div>
@@ -205,8 +177,9 @@
             </div>
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
-                    <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev5.png" alt="" style="width: fit-content;">
+                    <div class="card-body d-flex flex-column p-4 pb-0">
+
+                        <img src="/images/ev5.png" alt="Seamless check-ins icon" style="width: fit-content;">
                         <h3 class="featurerow1">Seamless Check-ins</h3>
                         <p class="mb-0 featurerow2 col-md-10">Generate unique QR codes for fast and secure check-ins, whether onsite or virtual.</p>
                     </div>
@@ -214,8 +187,9 @@
             </div>
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
-                    <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev6.png" alt="" style="width: fit-content;">
+                    <div class="card-body d-flex flex-column p-4 pb-0">
+
+                        <img src="/images/ev6.png" alt="Live engagement tools icon" style="width: fit-content;">
                         <h3 class="featurerow1">Live Engagement Tools</h3>
                         <p class="mb-0 featurerow2 col-md-10">Use live polling, surveys, and Q&A features to keep attendees engaged during the event.</p>
                     </div>
@@ -226,8 +200,9 @@
 
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
-                    <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev7.png" alt="" style="width: fit-content;">
+                    <div class="card-body d-flex flex-column p-4 pb-0">
+
+                        <img src="/images/ev7.png" alt="Real-time analytics icon" style="width: fit-content;">
                         <h3 class="featurerow1">Real-Time Analytics</h3>
                         <p class="mb-0 featurerow2 col-md-10">Track event performance with live analytics for insights on attendance and engagement.</p>
                     </div>
@@ -235,8 +210,9 @@
             </div>
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
-                    <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev8.png" alt="" style="width: fit-content;">
+                    <div class="card-body d-flex flex-column p-4 pb-0">
+
+                        <img src="/images/ev8.png" alt="Feedback and survey icon" style="width: fit-content;">
                         <h3 class="featurerow1">Post-Event Communication</h3>
                         <p class="mb-0 featurerow2 col-md-10">Send feedback surveys and follow-up emails to continue engaging attendees and gathering valuable insights.</p>
                     </div>
@@ -244,22 +220,19 @@
             </div>
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
-                    <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev9.png" alt="" style="width: fit-content;">
+                    <div class="card-body d-flex flex-column p-4 pb-0">
+
+                        <img src="/images/ev9.png" alt="Event branding icon" style="width: fit-content;">
                         <h3 class="featurerow1">Detailed Reporting</h3>
                         <p class="mb-0 featurerow2 col-md-10">Get comprehensive post-event reports to measure success and plan for future events.</p>
                     </div>
                 </div>
             </div>
-            <div class="col my-5">
-               
-                <a href="/get-started" class="get_started col-md-2"  target="_blank">Get started</a> 
+            <div class="col my-5 text-center">
+
+                <a href="/get-started" class="get_started col-md-2" target="_blank">Get started</a>
             </div>
         </div>
-
-
-
-
     </div>
 </section>
 
@@ -280,7 +253,7 @@
     </div>
 
     <div class="container pt-3">
-        <div class="row g-4 mt-0">
+        <div class="row g-4 mt-0 mb-5">
             <div class="col-md-6 my-3">
                 <div class=" card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-0">
@@ -326,8 +299,8 @@
                             </div>
                         </div>
 
-                        
-                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px"    target="_blank">Get started</a> 
+
+                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" target="_blank">Get started</a>
 
                     </div>
                 </div>
@@ -341,7 +314,7 @@
             </div>
 
         </div>
-        <div class="row g-4 mt-0">
+        <div class="row g-4 mt-0 mb-5">
 
             <div class="col-md-6 my-3">
                 <div class=" card h-100 border-0" style="    background: none;">
@@ -395,12 +368,12 @@
                             </div>
                         </div>
 
-                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px"    target="_blank">Get started</a> 
+                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" target="_blank">Get started</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row g-4 mt-0">
+        <div class="row g-4 mt-0 mb-5">
             <div class="col-md-6 my-3">
                 <div class=" card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-0">
@@ -446,7 +419,7 @@
                             </div>
                         </div>
 
-                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px"   target="_blank">Get started</a> 
+                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" target="_blank">Get started</a>
                     </div>
                 </div>
             </div>

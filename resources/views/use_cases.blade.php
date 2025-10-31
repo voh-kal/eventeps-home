@@ -4,39 +4,7 @@
 <!-- Hero Section -->
 <section class="hero-section-usecase ">
     <!-- Main Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark main-nav">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="/images/logo.png" alt="TEPS">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link " href="/about">About TEPS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/use-cases">Use Cases</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/faqs">FAQs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/resources">Resources</a>
-                    </li>
-                </ul>
-
-                <div class="d-flex">
-                <a href="/get-started" class="btn btn_outline_light me-2"  target="_blank">Get started</a> 
-                    <a href="https://app.eventeps.com/" class="btn btn_primary" target="_blank">Login</a>                </div>
-            </div>
-        </div>
-    </nav>
+   @include('navbar')
     <div class="d-flex align-items-center text-white">
         <div class="container">
             <div class="row hero-content-usecase">
@@ -62,22 +30,7 @@
 
 
 <!-- slider -->
-<section class="sliderbody">
-    <div class="container">
-        <div class="slider_cover">
-            <div class="marquee" style="    background: none;">
-                <img src="/images/sl1.png" alt="" style="width: fit-content;">
-                <img src="/images/sl2.png" alt="" class="img-fluid">
-                <img src="/images/sl3.png" alt="" class="img-fluid">
-                <img src="/images/sl5.png" alt="" class="img-fluid">
-                <img src="/images/sl6.png" alt="" class="img-fluid">
-                <img src="/images/sl4.png" alt="" class="img-fluid">
-
-
-            </div>
-        </div>
-    </div>
-</section>
+@include('admin.slider')
 
 
 <!-- case study -->
@@ -107,7 +60,7 @@
                 <div class="card h-100 border-0 " style="background: none;">
                     <div class="card-body p-0">
                         <div>
-                            <img src="/images/case1.png" alt="" class="img-fluid">
+                            <img src="/images/case1.png" alt="Case study: TEPS event management" class="img-fluid" aria-label="Case study event image">
                         </div>
                     </div>
                 </div>
@@ -128,7 +81,7 @@
                 <div class="card h-100 border-0 " style="background: none;">
                     <div class="card-body p-0">
                         <div>
-                            <img src="/images/case2.png" alt="" class="img-fluid">
+                            <img src="/images/case2.png" alt="Case study: Nexford University graduation" class="img-fluid" aria-label="Nexford University graduation event image">
                         </div>
                     </div>
                 </div>
@@ -298,7 +251,7 @@
 <!-- overall -->
 <section style="position: relative;" class="py-5">
     <div style="position: absolute; top: 0; left: 0; z-index: -1;">
-        <img src="/images/left.png" alt="" style="max-width: 100%; height: auto;">
+    <img src="/images/left.png" alt="Decorative left background" aria-hidden="true" style="max-width: 100%; height: auto;">
     </div>
     <div class="container py-5" style="text-align: -webkit-center;">
 
@@ -325,21 +278,21 @@
             <div class="col-md-12 col-lg-6">
                 <div class="d-flex justify-content-center align-items-end">
                     <div class="col-lg-3 col-md-4 col-3 my-3 mx-2">
-                        <img src="/images/ab1.png" alt="Event 1" class="img-fluid rounded shadow">
+                        <img src="/images/ab1.png" alt="Graduation event photo 1" class="img-fluid rounded shadow" aria-label="Graduation event photo 1">
                     </div>
                     <div class="col-lg-3 col-md-4 col-3 my-3 mx-2">
-                        <img src="/images/ab2.png" alt="Event 2" class="img-fluid rounded shadow">
+                        <img src="/images/ab2.png" alt="Graduation event photo 2" class="img-fluid rounded shadow" aria-label="Graduation event photo 2">
                     </div>
                 </div>
                 <div class="d-flex justify-content-center ">
                     <div class="col-lg-3 col-md-4 col-3 my-3 mx-2">
-                        <img src="/images/ab3.png" alt="Event 3" class="img-fluid rounded shadow">
+                        <img src="/images/ab3.png" alt="Graduation event photo 3" class="img-fluid rounded shadow" aria-label="Graduation event photo 3">
                     </div>
                     <div class="col-lg-3 col-md-4 col-3 my-3 mx-2">
-                        <img src="/images/ab4.png" alt="Event 4" class="img-fluid rounded shadow">
+                        <img src="/images/ab4.png" alt="Graduation event photo 4" class="img-fluid rounded shadow" aria-label="Graduation event photo 4">
                     </div>
                     <div class="col-lg-3 col-md-4 col-3 my-3 mx-2">
-                        <img src="/images/ab5.png" alt="Event 4" class="img-fluid rounded shadow">
+                        <img src="/images/ab5.png" alt="Graduation event photo 5" class="img-fluid rounded shadow" aria-label="Graduation event photo 5">
                     </div>
                 </div>
             </div>
@@ -349,7 +302,7 @@
 
 
     <div style="position: absolute; bottom: 0; right: 0; z-index: -1;">
-        <img src="/images/right.png" alt="" style="max-width: 100%; height: auto;">
+    <img src="/images/right.png" alt="Decorative right background" aria-hidden="true" style="max-width: 100%; height: auto;">
     </div>
 </section>
 
@@ -365,9 +318,13 @@
             @foreach($resources as $resource)
             <div class="col-md-3 my-3">
                 <div class="card h-100 cards border-0 custom-border2 " style="    background: none;">
-                    <div class="card-body card-bodys d-flex flex-column justify-content-center p-4 pb-0">
-                        <div style="height: 200px;">
-                        <img src="{{env('TEPS')}}/storage/assets/images/{{$resource->image}}" alt="" style="width: fit-content;overflow:hidden" class="img-fluid">
+                    <div class="card-body card-bodys d-flex flex-column justify-content-center px-0 pt-4 pb-0">
+                        <div>
+                    <img src="{{config('app.frontend_url')}}/storage/assets/images/{{$resource->image}}"
+                        alt="Case study: {{ $resource->topic }}"
+                        style="width: 100%;overflow:hidden;object-fit: cover;height: 200px; object-position: top;"
+                        class="img-fluid text-white"
+                        aria-label="Case study image for {{ $resource->topic }}">
                         </div>
                        
                         <h3 class="featurerow1 ft1 text-white">{{ Str::limit($resource->topic, 30) }}</h3>

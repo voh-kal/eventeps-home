@@ -14,8 +14,10 @@ Route::match(['get', 'post'], '/features', [HomeController::class, 'features']);
 Route::match(['get', 'post'], '/use-cases', [HomeController::class, 'use_cases']);
 Route::match(['get', 'post'], '/faqs', [HomeController::class, 'faqs']);
 Route::match(['get', 'post'], '/resources', [HomeController::class, 'resources']);
+Route::match(['get'], '/resources/{id}', [HomeController::class, 'single_blog']);
 Route::match(['get', 'post'], '/get-started', [HomeController::class, 'welcome']);
 Route::post('/api/event-registration', [HomeController::class, 'store']);
+    Route::get('/widget', [HomeController::class, 'widget'])->name('widget');
 Route::post('/comments', [CommentsController::class, 'store'])->name('comments.store');
 Route::get('/like/{post}', [LikesController::class, 'likePost'])->name('like.store');
 

@@ -39,7 +39,8 @@ use App\Models\User;
                                 <input type="tel" name="phone_number" placeholder="Enter Phonenumber" />
                             </div>
                         </div>
-                        <input type="button" name="next" class="next action-button" value="Next" />
+                        
+<input type="button" name="next" class="next action-button" value="Next" aria-label="Go to next step" />
                     </fieldset>
 
                     <!-- Event Details -->
@@ -285,8 +286,8 @@ use App\Models\User;
 
 
                         </div>
-                        <input type="button" name="next" class="next action-button" value="Next" />
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" aria-label="Go to next step" />
+<input type="button" name="previous" class="previous action-button-previous" value="Previous" aria-label="Go to previous step" />
                     </fieldset>
 
                     <!-- Other Details -->
@@ -299,9 +300,9 @@ use App\Models\User;
                             <label>Question/Comments:</label>
                             <textarea name="question" id="" placeholder="Enter your question/comment"></textarea>
                         </div>
-                        <input type="submit" class="action-button" value="Submit" />
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    </fieldset>
+<input type="submit" class="action-button" value="Submit" aria-label="Submit event details form" />
+<input type="button" name="previous" class="previous action-button-previous" value="Previous" aria-label="Go to previous step" />
+                         </fieldset>
                 </form>
             </div>
         </div>

@@ -4,40 +4,7 @@
 <!-- Hero Section -->
 <section class="hero-section-faqs ">
     <!-- Main Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark main-nav">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="/images/logo.png" alt="TEPS">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link " href="/about">About TEPS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/use-cases">Use Cases</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/faqs">FAQs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/resources">Resources</a>
-                    </li>
-                </ul>
-
-                <div class="d-flex">
-                <a href="/get-started" class="btn btn_outline_light me-2"  target="_blank">Get started</a> 
-                    <a href="#" class="btn btn_primary" data-bs-target="#tiddyModal" data-bs-toggle="modal">Schedule a demo</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+   @include('navbar')
     <div class="d-flex align-items-center text-white">
         <div class="container">
             <div class="row hero-content-about">
@@ -75,7 +42,8 @@
                 <h2 style="font-size: 40px; font-weight: 700;">Got questions? We got answers! </h2>
                 <p style="font-size:20px;font-weight:400;color:#6C747D" class="col-md-11">Feel free to reach out to us if you have more questions for us.</p>
                 <div class="my-3">
-                    <a href="#" class="m-0 get_started btn col-md-4">Contact Us <img src="/images/arrow.png" alt="" class="img-fluid"></a>
+                    <a href="#" class="m-0 get_started btn col-md-4" data-bs-toggle="modal" data-bs-target="#contactModal" aria-label="Open contact form modal">Contact Us <img src="/images/arrow.png" alt="" class="img-fluid"></a>
+                     @include('contactmodal')
                 </div>
             </div>
             <div class="col-md-7 my-3">
@@ -178,31 +146,29 @@
             <div class="col-md-12 col-lg-6">
                 <div class="d-flex justify-content-center align-items-end">
                     <div class="col-lg-3 col-md-4 col-3 my-3 mx-2">
-                        <img src="/images/ab1.png" alt="Event 1" class="img-fluid rounded shadow">
+                        <img src="/images/ab1.png" alt="TEPS team at event 1" class="img-fluid rounded shadow">
                     </div>
                     <div class="col-lg-3 col-md-4 col-3 my-3 mx-2">
-                        <img src="/images/ab2.png" alt="Event 2" class="img-fluid rounded shadow">
+                        <img src="/images/ab2.png" alt="TEPS team at event 2" class="img-fluid rounded shadow">
                     </div>
                 </div>
                 <div class="d-flex justify-content-center ">
                     <div class="col-lg-3 col-md-4 col-3 my-3 mx-2">
-                        <img src="/images/ab3.png" alt="Event 3" class="img-fluid rounded shadow">
+                        <img src="/images/ab3.png" alt="TEPS team at event 3" class="img-fluid rounded shadow">
                     </div>
                     <div class="col-lg-3 col-md-4 col-3 my-3 mx-2">
-                        <img src="/images/ab4.png" alt="Event 4" class="img-fluid rounded shadow">
+                        <img src="/images/ab4.png" alt="TEPS team at event 4" class="img-fluid rounded shadow">
                     </div>
                     <div class="col-lg-3 col-md-4 col-3 my-3 mx-2">
-                        <img src="/images/ab5.png" alt="Event 4" class="img-fluid rounded shadow">
+                        <img src="/images/ab5.png" alt="TEPS team at event 5" class="img-fluid rounded shadow">
                     </div>
                 </div>
             </div>
         </div>
 
     </section>
-
-
-    <div style="position: absolute; bottom: 0; right: 0; z-index: -1;">
-        <img src="/images/right.png" alt="" style="max-width: 100%; height: auto;">
+    <div style="position: absolute; bottom: 0; right: 0; z-index: -1;">        
+        <img src="/images/right.png" alt="Decorative right background graphic" aria-hidden="true" style="max-width: 100%; height: auto;">
     </div>
 </section>
 

@@ -14,6 +14,8 @@
 <meta name="twitter:title" content="TEPS - Your Platform for Seamless Event Management">
 <meta name="twitter:description" content="Plan and manage seamless events with TEPS. From organizing guest lists to engaging remote audiences, our platform has everything you need.">
 <meta name="twitter:image" content="{{ url('/images/logo.png') }}">
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 
 @section('schema')
@@ -45,40 +47,7 @@
 <!-- Hero Section -->
 <section class="hero-section ">
     <!-- Main Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark main-nav">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="/images/logo.png" alt="TEPS">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About TEPS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/use-cases">Use Cases</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/faqs">FAQs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/resources">Resources</a>
-                    </li>
-                </ul>
-
-                <div class="d-flex">
-                    <a href="/get-started" class="btn btn_outline_light btn-md me-2" target="_blank">Get started</a>
-                    <a href="https://app.eventeps.com/" class="btn btn_primary btn-md" target="_blank">Login</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    @include('navbar')
     <div class="row">
         @include('flashmessage')
     </div>
@@ -90,15 +59,15 @@
                         YOUR <span class="highlight-text">PLATFORM</span> FOR
                         <span class="highlight-text">SEAMLESS</span> EVENTS
                     </h1>
-                    <p class="lead mb-5">
+                    <p class="lead mb-5" style="height: 60px;">
                         Quickly and Easily <span id="typewriter" style="text-transform: capitalize;    color: #007bff;  font-weight: bold;"></span> </p>
 
                     <div class="row justify-content-center gx-3">
-                        <div class="col-auto">
-                            <a href="https://app.eventeps.com/pages/signup" target="_blank" class="m-0 get_started btn-lg">Sign Up</a>
+                        <div class="col-auto mt-2">
+                            <a href="https://app.eventeps.com/pages/signup" target="_blank" class="m-0 get_started btn-lg" aria-label="Sign up for TEPS event management platform">Sign Up</a>
                         </div>
-                        <div class="col-auto">
-                            <a href="#" class="m-0 get_started-a btn-lg" data-bs-target="#tiddyModal" data-bs-toggle="modal">Schedule a Demo →</a>
+                        <div class="col-auto mt-2">
+                            <a href="#" class="m-0 get_started-a btn-lg" data-bs-target="#tiddyModal" data-bs-toggle="modal" aria-label="Schedule a demo with TEPS">Schedule a Demo</a>
                         </div>
                     </div>
                 </div>
@@ -108,54 +77,7 @@
 
 </section>
 
-<!-- slider with infinite loop -->
-<section class="sliderbody" aria-label="Partner Logos">
-    <div class="container">
-        <div class="slider_cover">
-            <div class="marquee-container">
-                <div class="marquee-content">
-                    <div class="marquee-item">
-                        <img src="/images/sl1.png" alt="TEPS Partner Company Logo" class="img-fluid" loading="lazy">
-                    </div>
-                    <div class="marquee-item">
-                        <img src="/images/sl2.png" alt="TEPS Partner Company Logo" class="img-fluid" loading="lazy">
-                    </div>
-                    <div class="marquee-item">
-                        <img src="/images/sl3.png" alt="TEPS Partner Company Logo" class="img-fluid" loading="lazy">
-                    </div>
-                    <div class="marquee-item">
-                        <img src="/images/sl5.png" alt="TEPS Partner Company Logo" class="img-fluid" loading="lazy">
-                    </div>
-                    <div class="marquee-item">
-                        <img src="/images/sl4.png" alt="TEPS Partner Company Logo" class="img-fluid" loading="lazy">
-                    </div>
-                    <div class="marquee-item">
-                        <img src="/images/sl6.png" alt="TEPS Partner Company Logo" class="img-fluid" loading="lazy">
-                    </div>
-                    <!-- Duplicate items for the infinite loop effect -->
-                    <div class="marquee-item">
-                        <img src="/images/sl1.png" alt="TEPS Partner Company Logo" class="img-fluid" loading="lazy">
-                    </div>
-                    <div class="marquee-item">
-                        <img src="/images/sl2.png" alt="TEPS Partner Company Logo" class="img-fluid" loading="lazy">
-                    </div>
-                    <div class="marquee-item">
-                        <img src="/images/sl3.png" alt="TEPS Partner Company Logo" class="img-fluid" loading="lazy">
-                    </div>
-                    <div class="marquee-item">
-                        <img src="/images/sl5.png" alt="TEPS Partner Company Logo" class="img-fluid" loading="lazy">
-                    </div>
-                    <div class="marquee-item">
-                        <img src="/images/sl4.png" alt="TEPS Partner Company Logo" class="img-fluid" loading="lazy">
-                    </div>
-                    <div class="marquee-item">
-                        <img src="/images/sl6.png" alt="TEPS Partner Company Logo" class="img-fluid" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@include('admin.slider')
 
 
 <section id="why-teps" aria-labelledby="why-teps-heading">
@@ -185,7 +107,8 @@
                 <div class="card h-100 border-0 ">
                     <div class="card-body p-0">
                         <div class="bg-alice-blue d-flex justify-content-center" style="padding: 100px 20px 0">
-                            <img src="/images/firstrow.png" alt="" class="img-fluid">
+
+                            <img src="/images/firstrow.png" alt="TEPS event management dashboard screenshot" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -198,7 +121,8 @@
                 <div class="card h-100 border-0 ">
                     <div class="card-body p-0">
                         <div class="">
-                            <img src="/images/secondrow.png" alt="" class="img-fluid">
+
+                            <img src="/images/secondrow.png" alt="TEPS attendee engagement tools screenshot" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -231,7 +155,7 @@
                 <div class="card h-100 border-0 ">
                     <div class="card-body p-0">
                         <div class="bg-alice-blue d-flex justify-content-center" style="padding: 100px 20px 0">
-                            <img src="/images/thirdrow.png" alt="" class="img-fluid">
+                            <img src="/images/thirdrow.png" alt="TEPS attendee engagement tools" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -259,7 +183,7 @@
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/el1.png" alt="" style="width: fit-content;">
+                        <img src="/images/el1.png" alt="TEPS features" style="width: fit-content;">
                         <h3 class="featurerow1">Custom Event Pages</h3>
                         <p class="mb-0 featurerow2 col-md-10">Create branded event pages with all essential details to engage your audience.</p>
                     </div>
@@ -268,7 +192,7 @@
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev2.png" alt="" style="width: fit-content;">
+                        <img src="/images/ev2.png" alt="TEPS features" style="width: fit-content;">
                         <h3 class="featurerow1">Ticketing & Attendee Types</h3>
                         <p class="mb-0 featurerow2 col-md-10">Manage various ticket types with options for early bird pricing and discounts.</p>
                     </div>
@@ -277,7 +201,7 @@
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev3.png" alt="" style="width: fit-content;">
+                        <img src="/images/ev3.png" alt="TEPS features" style="width: fit-content;">
                         <h3 class="featurerow1">RSVP & Communication</h3>
                         <p class="mb-0 featurerow2 col-md-10">Simplify RSVP handling and stay connected with attendees via email and WhatsApp.</p>
                     </div>
@@ -288,7 +212,7 @@
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev4.png" alt="" style="width: fit-content;">
+                        <img src="/images/ev4.png" alt="TEPS features" style="width: fit-content;">
                         <h3 class="featurerow1">Session Scheduling</h3>
                         <p class="mb-0 featurerow2 col-md-10">Organize speaker schedules and sessions seamlessly, with tools for real-time updates.</p>
                     </div>
@@ -297,7 +221,7 @@
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev5.png" alt="" style="width: fit-content;">
+                        <img src="/images/ev5.png" alt="TEPS features" style="width: fit-content;">
                         <h3 class="featurerow1">Seamless Check-ins</h3>
                         <p class="mb-0 featurerow2 col-md-10">Generate unique QR codes for fast and secure check-ins, whether onsite or virtual.</p>
                     </div>
@@ -306,7 +230,7 @@
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev6.png" alt="" style="width: fit-content;">
+                        <img src="/images/ev6.png" alt="TEPS features" style="width: fit-content;">
                         <h3 class="featurerow1">Live Engagement Tools</h3>
                         <p class="mb-0 featurerow2 col-md-10">Use live polling, surveys, and Q&A features to keep attendees engaged during the event.</p>
                     </div>
@@ -318,7 +242,7 @@
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev7.png" alt="" style="width: fit-content;">
+                        <img src="/images/ev7.png" alt="TEPS features" style="width: fit-content;">
                         <h3 class="featurerow1">Real-Time Analytics</h3>
                         <p class="mb-0 featurerow2 col-md-10">Track event performance with live analytics for insights on attendance and engagement.</p>
                     </div>
@@ -327,7 +251,7 @@
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev8.png" alt="" style="width: fit-content;">
+                        <img src="/images/ev8.png" alt="TEPS features" style="width: fit-content;">
                         <h3 class="featurerow1">Post-Event Communication</h3>
                         <p class="mb-0 featurerow2 col-md-10">Send feedback surveys and follow-up emails to continue engaging attendees and gathering valuable insights.</p>
                     </div>
@@ -336,14 +260,14 @@
             <div class="col-md-4 my-3">
                 <div class="custom-border card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-4 pb-0">
-                        <img src="/images/ev9.png" alt="" style="width: fit-content;">
+                        <img src="/images/ev9.png" alt="TEPS features" style="width: fit-content;">
                         <h3 class="featurerow1">Detailed Reporting</h3>
                         <p class="mb-0 featurerow2 col-md-10">Get comprehensive post-event reports to measure success and plan for future events.</p>
                     </div>
                 </div>
             </div>
             <div class="col my-5 text-center">
-                <a href="/get-started" class="get_started btn-md mx-auto" target="_blank">Get started</a>
+                <a href="/get-started" class="get_started btn-md mx-auto" target="_blank" aria-label="get started with TEPS">Get started</a>
             </div>
         </div>
     </div>
@@ -373,7 +297,7 @@
                         <h3 class="featurerow1" style="    margin: 0px 0px 20px;">Set Up and Manage Your Event</h3>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="set up and manage your event" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Create Customized Event Pages: Design and set up personalized event pages with branding and all relevant details</p>
@@ -381,7 +305,7 @@
                         </div>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="organise and manage speakers" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Speaker and Session Management: Organize and manage speaker schedules and session agendas effortlessly.</p>
@@ -389,7 +313,7 @@
                         </div>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="manage ticket sales" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Ticket Sales and Discounts: Manage ticket sales, including discount codes and early bird pricing.</p>
@@ -397,7 +321,7 @@
                         </div>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="rsvp management" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>RSVP Management: Handle RSVPs seamlessly through email and WhatsApp.</p>
@@ -405,7 +329,7 @@
                         </div>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="attendee registration management" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Registration Management: Facilitate smooth online registration for all attendees.</p>
@@ -413,7 +337,7 @@
                         </div>
 
                         <div class="col text-left">
-                            <a href="/get-started" class="get_started btn-md mx-auto" target="_blank">Get started</a>
+                            <a href="/get-started" class="get_started btn-md mx-auto" target="_blank" aria-label="get started with TEPS">Get started</a>
                         </div>
                     </div>
                 </div>
@@ -421,7 +345,7 @@
             <div class="col-md-6 my-3">
                 <div class=" card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-0">
-                        <img src="/images/se1.png" alt="" class="img-fluid">
+                        <img src="/images/se1.png" alt="TEPS management system" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -432,7 +356,7 @@
             <div class="col-md-6 my-3">
                 <div class=" card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-0">
-                        <img src="/images/se2.png" alt="" class="img-fluid">
+                        <img src="/images/se2.png" alt="attendee engagement" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -442,7 +366,7 @@
                         <h3 class="featurerow1" style="    margin: 0px 0px 20px;">Engage and Interact with Attendees</h3>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="activate live polling & Q&A" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Activate Live Polling & Q&A: Keep attendees engaged with interactive polling and Q&A features throughout the event.</p>
@@ -450,7 +374,7 @@
                         </div>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="schedule email reminders and teasers" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Schedule Email Reminders and Teasers: Automate communication with attendees using email reminders and event teasers.</p>
@@ -458,7 +382,7 @@
                         </div>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="track real-time event performance" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Track Real-Time Event Performance: Monitor attendance, engagement, and other key metrics with live analytics.</p>
@@ -466,7 +390,7 @@
                         </div>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="generate post-event reports" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Generate Post-Event Reports: Create detailed reports to analyze event success.</p>
@@ -474,14 +398,14 @@
                         </div>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="create content QR codes" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Create Content QR Codes: Generate QR codes for easy access to event programs, menus, and surveys.</p>
                             </div>
                         </div>
 
-                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" target="_blank">Get started</a>
+                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" target="_blank" aria-label="get started with TEPS">Get started</a>
 
                     </div>
                 </div>
@@ -494,7 +418,7 @@
                         <h3 class="featurerow1" style="    margin: 0px 0px 20px;">Facilitate Check-ins</h3>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="facilitate onsite check-ins" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Facilitate Onsite Check-ins</p>
@@ -502,7 +426,7 @@
                         </div>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="facilitate onsite check-ins" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Facilitate Onsite Check-ins: Provide check-in officers and queue managers for smooth attendee entry.</p>
@@ -510,7 +434,7 @@
                         </div>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="implement QR code check-ins" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Implement QR Code Check-ins: Speed up the check-in process with unique QR codes for each attendee.</p>
@@ -518,7 +442,7 @@
                         </div>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="print badges and labels onsite" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Print Badges and Labels Onsite: Offer onsite badge and label printing for convenience.</p>
@@ -526,13 +450,13 @@
                         </div>
                         <div style="display: flex;">
                             <div class="">
-                                <img src="/images/mark.png" alt="" style="width: fit-content;">
+                                <img src="/images/mark.png" alt="provide helpdesk support" style="width: fit-content;">
                             </div>
                             <div class="col" style="margin-left: 10px;">
                                 <p>Provide Helpdesk Support: Assist attendees with helpdesk services throughout the event.</p>
                             </div>
                         </div>
-                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" target="_blank">Get started</a>
+                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" target="_blank" aria-label="get started with TEPS">Get started</a>
 
                     </div>
                 </div>
@@ -540,7 +464,7 @@
             <div class="col-md-6 my-3">
                 <div class=" card h-100 border-0" style="    background: none;">
                     <div class="card-body d-flex flex-column justify-content-center p-0">
-                        <img src="/images/se3.png" alt="" class="img-fluid">
+                        <img src="/images/se3.png" alt="TEPS event management" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -554,14 +478,23 @@
 <!-- video section -->
 <section id="videos" aria-labelledby="video-heading" class="video_section">
     <div class="container video_background">
-        <h2 id="video-heading" class="text-white">VIDEO</h2>
-        <p class="col-md-5">Experience the power of TEPS.</p>
-        <a href="https://www.youtube.com/shorts/WY0mbKFuG_o" target="_blank" rel="noopener" aria-label="Watch TEPS demo video">
-            <img src="/images/play.png" alt="Play video button" width="64" height="64">
-        </a>
+
+        <h2 class="section-header mt-5 mb-4 mx-auto" id="services-heading">
+            <span>Video</span>
+        </h2>
+        <h3 class="sectionH4 mb-5">Experience the power of TEPS.</h3>
+        <div class="" style="max-width: 560px; margin: 0 auto;">
+            <iframe
+                src="https://www.youtube.com/embed/WY0mbKFuG_o?rel=0"
+                title="TEPS Demo Video"
+                aria-label="TEPS Demo Video YouTube player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="border-radius: 12px; width: 100%; height: 315px; min-height: 200px;"></iframe>
+        </div>
     </div>
     <div class="col my-5 text-center">
-        <a href="https://www.youtube.com/@powerofteps" class="get_started btn-md mx-auto" target="_blank" rel="noopener">
+        <a href="https://www.youtube.com/@powerofteps" class="get_started btn-md mx-auto" target="_blank" rel="noopener" aria-label="Visit TEPS YouTube channel">
             <img src="/images/youtube.png" alt="YouTube logo" width="24" height="24"> See more
         </a>
     </div>
@@ -582,21 +515,22 @@
             <p class="col-md-10 sectionP text-white">Discover how Eventeps has helped businesses and organizations create seamless and successful events. From virtual conferences to large in-person gatherings, our platform has delivered top-notch solutions for every scenario.</p>
         </div>
     </div>
-    <div class="container py-5">
+    <div class="container pb-5">
         <div class="row g-4 ">
-            @if(count($resources) > 0)
-            @foreach($resources as $resource)
-            <div class="col-md-3 my-3">
+
+            @if(count($apiResources) > 0)
+            @foreach($apiResources as $resource)
+            <div class="col-md- col-lg-3 my-3">
                 <div class="card h-100 cards border-0 custom-border2 " style="    background: none;">
-                    <div class="card-body card-bodys d-flex flex-column justify-content-center p-4 pb-0">
-                        <div style="height: 200px; overflow: hidden;">
-                            <img src="{{env('TEPS')}}/storage/assets/images/{{$resource->image}}"
-                                alt=""
-                                style="height: 100%; object-fit: cover;"
+                    <div class="card-body card-bodys d-flex flex-column justify-content-center pb-1">
+                        <div style="height: 200px; width: 100%; overflow: hidden;">
+                            <img src="{{env('TEPS')}}/storage/assets/images/{{$resource['image']}}"
+                                alt="Teps resource image"
+                                style="object-fit: cover;"
                                 class="img-fluid">
                         </div>
-                        <h3 class="featurerow1 ft1 text-white">{{ Str::limit($resource->topic, 30) }}</h3>
-                        <p class="mb-0 featurerow2 ft2 col-md-10 text-white">{{ Str::limit($resource->description, 50) }}</p>
+                        <h3 class="featurerow1 ft1 text-white">{{ Str::limit($resource['topic'], 30) }}</h3>
+                        <p class="mb-0 featurerow2 ft2 col-md-10 text-white">{{ Str::limit($resource['description'], 50) }}</p>
                         <hr>
                     </div>
                 </div>
@@ -604,14 +538,14 @@
             @endforeach
             @endif
         </div>
-    
+
         <div class="row justify-content-center gx-3 my-5">
             <div class="col-auto mt-2">
-             
-                  <a href="/use-cases" class="m-0 get_started-a btn-md">See more case studies <img src="/images/arrow.png" alt="" class="img-fluid"></a>
+
+                <a href="/use-cases" class="m-0 get_started-a btn-md">See more case studies <img src="/images/arrow.png" alt="see more TEPS cases" class="img-fluid"></a>
             </div>
             <div class="col-auto mt-2">
-                 <a href="https://app.eventeps.com/" class="m-0 get_started btn-md" target="_blank">Login</a>
+                <a href="https://app.eventeps.com/" class="m-0 get_started btn-md" target="_blank" rel="noopener" aria-label="Login to TEPS">Login</a>
             </div>
         </div>
 
@@ -631,7 +565,9 @@
                 <h3 style="font-size: 40px; font-weight: 700;">Got questions? We got answers! </h3>
                 <p style="font-size:20px;font-weight:400;color:#6C747D" class="col-md-11">Feel free to reach out to us if you have more questions for us.</p>
                 <div class="my-3">
-                    <a href="/contact" class="m-0 get_started btn-md">Contact Us <img src="/images/arrow.png" alt="Arrow icon" class="img-fluid" width="16" height="16"></a>
+                    <a href="#" class="m-0 get_started btn-md" data-bs-toggle="modal" data-bs-target="#contactModal" aria-label="Open contact form modal">Contact Us <img src="/images/arrow.png" alt="contact us" class="img-fluid" width="16" height="16"></a>
+                  @include('contactmodal')
+
                 </div>
             </div>
             <div class="col-md-7 my-3">
@@ -742,6 +678,130 @@
                 }
             });
         });
+    });
+</script>
+<script>
+    // AJAX handler for contact form submission
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('contactForm');
+        if (form) {
+            var submitBtn = document.getElementById('contactSubmitBtn');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Processing...';
+                }
+                var formData = new FormData(form);
+                var settings = {
+                    url: "{{ config('app.base_url') }}/contact-us",
+                    method: "POST",
+                    timeout: 0,
+                    headers: {
+                        "Accept": "application/json"
+                    },
+                    processData: false,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    data: formData,
+                    success: function(response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Message Sent',
+                            text: "Thank you for contacting us! We'll get back to you soon.",
+                            confirmButtonText: 'OK'
+                        });
+                        form.reset();
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Message';
+                        }
+                    },
+                    error: function(xhr) {
+                        var msg = 'There was an error submitting your message. Please try again.';
+                        if (xhr.responseJSON && xhr.responseJSON.errors) {
+                            var errors = xhr.responseJSON.errors;
+                            msg = Object.values(errors).map(function(arr) { return arr.join(' '); }).join(' ');
+                        } else if (xhr.responseJSON && xhr.responseJSON.message) {
+                            msg = xhr.responseJSON.message;
+                        }
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Submission Failed',
+                            text: msg,
+                            confirmButtonText: 'OK'
+                        });
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Message';
+                        }
+                    }
+                };
+                if (window.$ && $.ajax) {
+                    $.ajax(settings);
+                } else {
+                    // fallback to fetch if jQuery is not available
+                    fetch(settings.url, {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json'
+                            },
+                            body: formData
+                        })
+                        .then(function(response) {
+                            return response.json();
+                        })
+                        .then(function(data) {
+                            if (data && data.errors) {
+                                var msg = Object.values(data.errors).map(function(arr) { return arr.join(' '); }).join(' ');
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Submission Failed',
+                                    text: msg,
+                                    confirmButtonText: 'OK'
+                                });
+                                if (submitBtn) {
+                                    submitBtn.disabled = false;
+                                    submitBtn.textContent = 'Send Message';
+                                }
+                            } else {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Message Sent',
+                                    text: "Thank you for contacting us! We'll get back to you soon.",
+                                    confirmButtonText: 'OK'
+                                });
+                                form.reset();
+                                if (submitBtn) {
+                                    submitBtn.disabled = false;
+                                    submitBtn.textContent = 'Send Message';
+                                }
+                            }
+                        })
+                        .catch(function(err) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Submission Failed',
+                                text: 'There was an error submitting your message. Please try again.',
+                                confirmButtonText: 'OK'
+                            });
+                            if (submitBtn) {
+                                submitBtn.disabled = false;
+                                submitBtn.textContent = 'Send Message';
+                            }
+                        });
+                }
+            });
+        }
+        // Reset modal on close
+        var contactModal = document.getElementById('contactModal');
+        if (contactModal) {
+            contactModal.addEventListener('hidden.bs.modal', function() {
+                form.reset();
+                form.classList.remove('d-none');
+                document.getElementById('contactSuccess').classList.add('d-none');
+            });
+        }
     });
 </script>
 
@@ -869,47 +929,6 @@
     .marquee-container:hover .marquee-content {
         animation-play-state: paused;
     }
-
-    /* Mobile Navigation Styles */
-    @media (max-width: 991.98px) {
-        .navbar-collapse {
-            position: absolute;
-            background-color: rgb(40 40 64 / 76%);
-            padding: 1rem;
-            margin-top: 0.5rem;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 1030;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .navbar-nav {
-            padding: 15px 0;
-        }
-
-        /* Prevent content shifting when menu opens */
-        body.menu-open {
-            overflow: hidden;
-        }
-    }
 </style>
 
-<script>
-    // Prevent hero section from shifting when mobile menu opens
-    document.querySelector('.navbar-toggler').addEventListener('click', function() {
-        if (window.innerWidth < 992) {
-            document.body.classList.toggle('menu-open');
-
-            // If menu is closing, ensure any open dropdowns are closed too
-            if (!document.body.classList.contains('menu-open')) {
-                const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
-                openDropdowns.forEach(dropdown => {
-                    dropdown.classList.remove('show');
-                });
-            }
-        }
-    });
-</script>
 @endsection

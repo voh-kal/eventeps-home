@@ -3,42 +3,26 @@
 @php
 use App\Models\User;
 @endphp
+<style>
+    .pinned-image {
+        height: 310px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 7px 0 0 7px;
+        object-position: top;
+    }
+
+    .unpinned-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+</style>
 <!-- Hero Section -->
 <section class="hero-section-resource ">
     <!-- Main Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark main-nav">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="/images/logo.png" alt="TEPS">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link " href="/about">About TEPS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/use-cases">Use Cases</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="/faqs">FAQs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/resources">Resources</a>
-                    </li>
-                </ul>
-
-                <div class="d-flex">
-                <a href="/get-started" class="btn btn_outline_light me-2"  target="_blank">Get started</a> 
-                   <a href="https://app.eventeps.com/" class="btn btn_primary" target="_blank">Login</a>                </div>
-            </div>
-        </div>
-    </nav>
+    @include('navbar')
     <div class="d-flex align-items-center text-white">
         <div class="container">
             <div class="row hero-content-about">
@@ -62,39 +46,6 @@ use App\Models\User;
 </section>
 
 
-
-
-<!-- <section class="teps_section">
-    <div class="container py-5">
-        <div class="row my-3 mx-0" style="    border: 1px solid blue;    border-radius: 7px;">
-            <div class=" col-lg-7 m-0 p-0">
-                <div class="card h-100 border-0 p-0">
-                    <div class="card-body p-0">
-                        <div class=" ">
-                            <img src="/images/re1.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="card h-100 border-0">
-                    <div class="card-body d-flex flex-column p-4 ">
-                        <div class="button_cont">
-                            <button class="button_btn">featured</button>
-                        </div>
-                        <a href="#" class="row1">Get ready to experience the POWER OF TEPS at Event Tech Live Las Vegas!🚀</a>
-
-                        <p class="row3">January 25, 2024</p>
-                        <p><img src="/images/author.png" alt=""><span style="margin-left: 10px;font-size:14px">EMS ADMIN</span></p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>  -->
-
-
 @if($getPinned)
 @php $adminUser = User::where(['id' => $getPinned->user_id])->first(); @endphp
 <section class="teps_section">
@@ -104,7 +55,7 @@ use App\Models\User;
                 <div class="card h-100 border-0 p-0">
                     <div class="card-body p-0">
                         <div class=" ">
-                            <img src="{{env('TEPS')}}/storage/assets/images/{{$getPinned->image}}" alt="" class="img-fluid">
+                            <img src="{{config('app.frontend_url')}}/storage/assets/images/{{$getPinned->image}}" alt="Featured resource image: {{$getPinned->topic}}" class="img-fluid pinned-image ">
                         </div>
                     </div>
                 </div>
@@ -115,10 +66,11 @@ use App\Models\User;
                         <div class="button_cont">
                             <button class="button_btn">featured</button>
                         </div>
-                        <a href="/resources/{{base64_encode($getPinned->id)}}" class="row1">{{$getPinned->topic}}</a>
+
+                        <a href="/resources/{{base64_encode($getPinned->id)}}" class="row1" aria-label="Read resource: {{$getPinned->topic}}">{{$getPinned->topic}}</a>
 
                         <p class="row3">{{$getPinned->created_at->format('M d, Y')}}</p>
-                        <p><img src="/images/author.png" alt=""><span style="margin-left: 10px;font-size:14px">{{ucwords($adminUser->name)}}</span></p>
+                        <p><img src="/images/author.png" alt="Author profile image"><span style="margin-left: 10px;font-size:14px">{{ucwords($adminUser->name)}}</span></p>
                     </div>
                 </div>
             </div>
@@ -140,14 +92,16 @@ use App\Models\User;
 
                 <div class="card h-100 cards" style="background: none;border: 1px solid black">
                     <div style="height: 300px;border-radius: inherit;    overflow: hidden;">
-                        <img src="{{env('TEPS')}}/storage/assets/images/{{$all->image}}" alt="" class="img-fluid">
+
+                        <img src="{{config('app.frontend_url')}}/storage/assets/images/{{$all->image}}" alt="Resource image: {{$all->topic}}" class="img-fluid unpinned-image">
                     </div>
 
                     <div class="card-body card-bodys d-flex flex-column justify-content-center p-3">
-                        <a href="/resources/{{base64_encode($all->id)}}" class=" ft1 ">{{$all->topic}}</a>
-                        <p class="row4">{{$all->created_at->format('M d, Y')}}</p>
-                        <p><img src="/images/author.png" alt=""><span style="margin-left: 10px;font-size:14px">{{ucwords($user->name)}}</span></p>
 
+                        <a href="/resources/{{base64_encode($all->id)}}" class=" ft1 " aria-label="Read resource: {{$all->topic}}">{{$all->topic}}</a>
+
+                        <p class="row4">{{$all->created_at->format('M d, Y')}}</p>
+                        <p><img src="/images/author.png" alt="Author profile image"><span style="margin-left: 10px;font-size:14px">{{ucwords($user->name)}}</span></p>
                     </div>
                 </div>
             </div>
@@ -158,15 +112,27 @@ use App\Models\User;
 
 
 <!-- video section -->
-<section class="video_section" style="margin:0px;">
+<section id="videos" aria-labelledby="video-heading" class="video_section">
     <div class="container video_background">
-        <h5>VIDEO</h5>
-        <p class="col-md-5">Experience the power of TEPS.</p>
-        <a href="https://www.youtube.com/shorts/CpVJq5Jdbl0" target="_blank"> <img src="/images/play.png" alt=""></a>
 
+        <h2 class="section-header mt-5 mb-4 mx-auto" id="services-heading">
+            <span>Video</span>
+        </h2>
+        <h3 class="sectionH4 mb-5">Experience the power of TEPS.</h3>
+        <div class="" style="max-width: 560px; margin: 0 auto;">
+            <iframe
+                src="https://www.youtube.com/embed/WY0mbKFuG_o?rel=0"
+                title="TEPS Demo Video"
+                aria-label="TEPS Demo Video YouTube player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="border-radius: 12px; width: 100%; height: 315px; min-height: 200px;"></iframe>
+        </div>
     </div>
-    <div class="col my-5">
-        <a href="https://www.youtube.com/@powerofteps" class="get_started col-md-2" target="_blank"><img src="/images/youtube.png" alt=""> See more</a>
+    <div class="col my-5 text-center">
+        <a href="https://www.youtube.com/@powerofteps" class="get_started btn-md mx-auto" target="_blank" rel="noopener" aria-label="Visit TEPS YouTube channel">
+            <img src="/images/youtube.png" alt="YouTube logo" width="24" height="24"> See more
+        </a>
     </div>
 </section>
 

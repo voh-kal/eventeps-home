@@ -18,7 +18,7 @@
     <meta name="google-site-verification" content="9JWgSGO6IMnxUTWCYZNKrYLqlOT8v0y7AN2EbVVZ8LA" />
     <!-- Canonical URL to prevent duplicate content issues -->
     <link rel="canonical" href="{{ url()->current() }}" />
-    
+
     @yield('meta', '')
     @yield('schema', '')
 
@@ -36,39 +36,50 @@
             m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-XXXXX-Y', 'auto');
+        // ga('create', 'UA-XXXXX-Y', 'auto');
+
         ga('send', 'pageview');
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX');
+    </script>
     <!-- End Google Analytics -->
-    
+
     <!-- Structured Data for Local Business (Event Management) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "TEPS - The Experience Plug Systems",
-      "image": "https://www.eventeps.com/img/logo1.png",
-      "url": "https://www.eventeps.com",
-      "telephone": "+2348104881380",
-      "email": "Power@eventeps.com",
-      "description": "TEPS is your go-to event management platform, empowering brands to host engaging virtual, hybrid, and in-person events for growth and connection.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "Nigeria"
-      },
-      "sameAs": [
-        "https://www.facebook.com/share/1ABnU3S4dw/",
-        "https://www.youtube.com/@powerofteps",
-        "https://www.linkedin.com/company/thepowerofteps",
-        "https://www.instagram.com/thepowerofteps"
-      ],
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "17:00"
-      }
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "TEPS - The Experience Plug Systems",
+            "image": "https://www.eventeps.com/img/logo1.png",
+            "url": "https://www.eventeps.com",
+            "telephone": "+2348104881380",
+            "email": "Power@eventeps.com",
+            "description": "TEPS is your go-to event management platform, empowering brands to host engaging virtual, hybrid, and in-person events for growth and connection.",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Nigeria"
+            },
+            "sameAs": [
+                "https://www.facebook.com/share/1ABnU3S4dw/",
+                "https://www.youtube.com/@powerofteps",
+                "https://www.linkedin.com/company/thepowerofteps",
+                "https://www.instagram.com/thepowerofteps"
+            ],
+            "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "17:00"
+            }
+        }
     </script>
 
     <!-- Open Graph meta tags for social sharing -->
@@ -96,6 +107,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
+      
+        #mainNavbar {
+            transition: top 0.3s;
+            position: relative;
+            top: 0;
+            z-index: 1031;
+            padding: 10px 0px;
+            width: 100%;
+        }
+
+        .fixed-navbar {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1031;
+            /* box-shadow: 0 2px 8px rgba(0,0,0,0.08); */
+            animation: slideDown 0.3s;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .hide-navbar {
+            top: -100px !important;
+            transition: top 0.3s;
+            /* adjust based on navbar height */
+        }
+
+        .navbar {
+            position: relative;
+            z-index: 1031;
+        }
+
         @font-face {
             font-family: "caveat";
             src: url("/caveat/static/Caveat-Bold.ttf");
@@ -186,36 +238,16 @@
         }
 
         .video_background {
-            min-height: 100vh;
-            background: url('images/video_background.png');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            text-align: center;
-            border-radius: 50px;
 
-            /* Remove padding-top and use flex for centering */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            text-align: center;
+
         }
 
         .video_background p {
-            font-size: 24px;
+            font-size: 30px;
             font-weight: 600;
-            color: white;
-            margin: 10px auto;
-            max-width: 80%;
             /* Responsive width */
             padding: 0 15px;
-        }
-
-        .video_background h5 {
-            font-size: 16px;
-            font-weight: 400;
-            color: white;
-            margin-bottom: 0px;
         }
 
         .video_background img {
@@ -227,18 +259,10 @@
 
         /* Add media queries for better responsiveness */
         @media screen and (max-width: 768px) {
-            .video_background {
+            /* .video_background {
                 min-height: 80vh;
-            }
+            } */
 
-            .video_background p {
-                font-size: 20px;
-                max-width: 90%;
-            }
-
-            .video_background h5 {
-                font-size: 14px;
-            }
         }
 
         .dark-background {
@@ -421,7 +445,7 @@
         .hero-content-about,
         .hero-content-feature,
         .hero-content-usecase {
-            padding-top: 200px;
+            padding-top: 80px;
         }
 
         .highlight-text {
@@ -484,9 +508,10 @@
             font-size: 18px;
             min-width: 180px;
         }
-        
+
         /* Responsive button styles */
         @media (max-width: 767.98px) {
+
             .btn_outline_light,
             .get_started,
             .get_started-a,
@@ -495,21 +520,22 @@
                 font-size: 15px;
                 min-width: 100px;
             }
-            
+
             .btn-sm {
                 padding: 6px 14px;
                 font-size: 13px;
                 min-width: 80px;
             }
-            
+
             .btn-lg {
                 padding: 12px 24px;
                 font-size: 16px;
                 min-width: 140px;
             }
         }
-        
+
         @media (max-width: 575.98px) {
+
             .btn_outline_light,
             .get_started,
             .get_started-a,
@@ -530,7 +556,7 @@
             background-clip: padding-box, border-box;
             padding: 12px 24px;
         }
-        
+
         .btn_outline_light:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -546,7 +572,7 @@
             padding: 12px 24px;
             margin: 15px auto;
         }
-        
+
         .get_started:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -562,7 +588,7 @@
             padding: 12px 24px;
             margin: 15px auto;
         }
-        
+
         .get_started-a:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -652,7 +678,7 @@
             background-clip: padding-box, border-box;
             padding: 12px 24px;
         }
-        
+
         .btn_primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -897,23 +923,122 @@
         .teps_section .card:hover {
             transform: translateY(0px);
         }
+
+        /* Mobile Navigation Styles */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                position: absolute;
+                background-color: rgb(40 40 64 / 76%);
+                padding: 1rem;
+                margin-top: 0.5rem;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 1030;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            .navbar-nav {
+                padding: 15px 0;
+            }
+
+            /* Prevent content shifting when menu opens */
+            body.menu-open {
+                overflow: hidden;
+            }
+        }
     </style>
     <style>
+        /* Infinite Marquee Slider */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+        }
 
+        .sliderbody {
+            position: relative;
+        }
+
+        /* Blur fade effect on edges */
+        .sliderbody::before,
+        .sliderbody::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 150px;
+            /* Adjust blur width */
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .sliderbody::before {
+            left: 0;
+            background: linear-gradient(to right,
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(255, 255, 255, 0) 100%);
+        }
+
+        .sliderbody::after {
+            right: 0;
+            background: linear-gradient(to left,
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(255, 255, 255, 0) 100%);
+        }
+
+        .marquee-content {
+            display: flex;
+            width: fit-content;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-item {
+            flex-shrink: 0;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+        }
+
+        .marquee-item img {
+            max-height: 80px;
+            width: auto;
+            max-width: 100%;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Pause animation when hovering */
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 
 <body>
+
     <!-- Top Navigation -->
     <div class="top-nav">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/share/1ABnU3S4dw/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.youtube.com/@powerofteps" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.linkedin.com/company/thepowerofteps" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/thepowerofteps?igsh=MXJ6ZnRkbTQ1czNzeA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1ABnU3S4dw/?mibextid=wwXIfr" target="_blank" aria-label="Visit TEPS on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i><span class="visually-hidden">Facebook</span></a>
+                        <a href="https://www.youtube.com/@powerofteps" target="_blank" aria-label="Visit TEPS on YouTube"><i class="fab fa-youtube" aria-hidden="true"></i><span class="visually-hidden">YouTube</span></a>
+                        <a href="https://www.linkedin.com/company/thepowerofteps" target="_blank" aria-label="Visit TEPS on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">LinkedIn</span></a>
+                        <a href="https://www.instagram.com/thepowerofteps?igsh=MXJ6ZnRkbTQ1czNzeA==" target="_blank" aria-label="Visit TEPS on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i><span class="visually-hidden">Instagram</span></a>
                     </div>
                 </div>
                 <div class="col-lg-6 text-end">
@@ -931,7 +1056,7 @@
             </div>
         </div>
     </div>
-    <main>
+    <main id="mainContent" style="transition:padding-top 0.3s;">
         @yield('content')
     </main>
 
@@ -959,45 +1084,43 @@
                 <div class="col-lg-3 col-md-3 footer-links">
                     <h4>Key Features</h4>
                     <ul>
-                        <li><a href="#">Ticketing & Registration</a></li>
-                        <li><a href="#">RSVP Management</a></li>
-                        <li><a href="#">QR Code Check-ins</a></li>
-                        <li><a href="#">Analytics Dashboard</a></li>
-
+                        <li><a href="#" aria-label="Learn more about Ticketing and Registration">Ticketing & Registration</a></li>
+                        <li><a href="#" aria-label="Learn more about RSVP Management">RSVP Management</a></li>
+                        <li><a href="#" aria-label="Learn more about QR Code Check-ins">QR Code Check-ins</a></li>
+                        <li><a href="#" aria-label="Learn more about Analytics Dashboard">Analytics Dashboard</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Term of use </a></li>
-                        <li><a href="#">Use Cases</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-
+                        <li><a href="#" aria-label="Read Frequently Asked Questions">FAQs</a></li>
+                        <li><a href="#" aria-label="Read Terms of Use">Terms of Use</a></li>
+                        <li><a href="#" aria-label="Explore Use Cases">Use Cases</a></li>
+                        <li><a href="#" aria-label="Read our Privacy Policy">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Contact Us</h4>
                     <ul itemscope itemtype="https://schema.org/ContactPoint">
                         <li>
-                            <a href="mailto:power@eventeps.com" itemprop="email">power@eventeps.com</a>
+                            <a href="mailto:power@eventeps.com" itemprop="email" aria-label="Email TEPS support at power@eventeps.com">power@eventeps.com</a>
                         </li>
                         <li>
-                            <a href="tel:+2348104881380" itemprop="telephone">+234 810 488 1380</a>
+                            <a href="tel:+2348104881380" itemprop="telephone" aria-label="Call TEPS support at +234 810 488 1380">+234 810 488 1380</a>
                         </li>
                     </ul>
                     <div class="social-links d-flex mt-4">
                         <a href="https://www.facebook.com/share/1ABnU3S4dw/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Follow TEPS on Facebook">
-                            <img src="/images/ff.png" alt="Facebook" width="40" height="40" loading="lazy">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i><span class="visually-hidden">Facebook</span>
                         </a>
                         <a href="https://www.youtube.com/@powerofteps" target="_blank" rel="noopener" aria-label="Follow TEPS on YouTube">
-                            <i class="fab fa-youtube" aria-hidden="true"></i><span class="sr-only">YouTube</span>
+                            <i class="fab fa-youtube" aria-hidden="true"></i><span class="visually-hidden">YouTube</span>
                         </a>
                         <a href="https://www.linkedin.com/company/thepowerofteps" target="_blank" rel="noopener" aria-label="Connect with TEPS on LinkedIn">
-                            <i class="fab fa-linkedin" aria-hidden="true"></i><span class="sr-only">LinkedIn</span>
+                            <i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">LinkedIn</span>
                         </a>
                         <a href="https://www.instagram.com/thepowerofteps?igsh=MXJ6ZnRkbTQ1czNzeA==" target="_blank" rel="noopener" aria-label="Follow TEPS on Instagram">
-                            <img src="/images/fi.png" alt="Instagram" width="40" height="40" loading="lazy">
+                            <img src="/images/fi.png" alt="Follow TEPS on Instagram" width="40" height="40" loading="lazy">
                         </a>
                     </div>
                 </div>
@@ -1020,22 +1143,58 @@
         </div>
     </div>
     <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
-
     <script>
-        $(document).ready(function() {
-            // Check if there are any flash messages or errors
-            @if(Session::has('success') || Session::has('error') || Session::has('warning') || Session::has('info') || isset($errors) && $errors->any())
-                // Show the modal
-                $('#flashModal').modal('show');
+        // Show navbar when scrolling up, hide when scrolling down
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('mainNavbar');
+            const mainContent = document.getElementById('mainContent');
+            let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let navbarHeight = navbar.offsetHeight;
+            let isFixed = false;
 
-                // Auto hide after 10 seconds
-                setTimeout(function() {
-                    $('#flashModal').modal('hide');
-                }, 10000);
-            @endif
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > navbarHeight) {
+                    if (!isFixed) {
+                        navbar.classList.add('fixed-navbar');
+                        mainContent.style.paddingTop = navbarHeight + 'px';
+                        isFixed = true;
+                    }
+                    if (scrollTop > lastScrollTop) {
+                        // Scrolling down
+                        navbar.classList.add('hide-navbar');
+                    } else {
+                        // Scrolling up
+                        navbar.classList.remove('hide-navbar');
+                    }
+                } else {
+                    if (isFixed) {
+                        navbar.classList.remove('fixed-navbar');
+                        mainContent.style.paddingTop = '';
+                        isFixed = false;
+                    }
+                    navbar.classList.remove('hide-navbar');
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            });
+        });
+        // Prevent hero section from shifting when mobile menu opens
+        document.querySelector('.navbar-toggler').addEventListener('click', function() {
+            if (window.innerWidth < 992) {
+                document.body.classList.toggle('menu-open');
+
+                // If menu is closing, ensure any open dropdowns are closed too
+                if (!document.body.classList.contains('menu-open')) {
+                    const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+                    openDropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('show');
+                    });
+                }
+            }
         });
     </script>
-    </script>
+
+
 </body>
 
 </html>

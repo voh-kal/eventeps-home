@@ -213,39 +213,7 @@
 <!-- Hero Section -->
 <section class="hero-section-single ">
     <!-- Main Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark main-nav">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="/images/logo.png" alt="TEPS">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link " href="/about">About TEPS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/use-cases">Use Cases</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="/faqs">FAQs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/resources">Resources</a>
-                    </li>
-                </ul>
-
-                <div class="d-flex">
-                <a href="/get-started" class="btn btn_outline_light me-2"  target="_blank">Get started</a> 
-                    <a href="https://app.eventeps.com/" class="btn btn_primary" target="_blank">Login</a>                </div>
-            </div>
-        </div>
-    </nav>
+    @include('navbar')
     <div class="d-flex align-items-center text-white">
         <div class="container">
             <div class="row hero-content-about">
@@ -273,12 +241,17 @@
 <section class="bg-light">
     <div class="container margin_top">
         <div class="mb-3 resource_head p-0">
-            <a href="/resources" class="word2 mt-3 text-left"> <i class="fas fa-arrow-left"></i> Back</a>
+            <a href="/resources" class="word2 mt-3 text-left" aria-label="Back to resources list">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Resources
+            </a>
         </div>
-    
+
         <div class="row">
             <div class="col-md-12 mt-2 mb-2">
-                <img src="{{env('TEPS')}}/storage/assets/images/{{$all->image}}" alt="" class="img-fluid">
+                <img src="{{env('TEPS')}}/storage/assets/images/{{$all->image}}"
+                     alt="Image for {{ $all->topic }} resource"
+                     class="img-fluid"
+                     aria-label="Image for {{ $all->topic }} resource">
             </div>
             <div class="col-xs-12 col-lg-12 mb-4 mt-4">
                 <p style="text-align: justify;">{!!$all->description!!}</p>
@@ -292,7 +265,12 @@
 
         <div class="container">
             <div class="share-window row mx-auto">
-                <div class="trigger mx-2 like-btn"><a href="{{ route('like.store', ['post' => $all->id]) }}"><i class="fas fa-heart"></i> {{ $all->likes->count() }} Likes </a></div>
+                <div class="trigger mx-2 like-btn">
+                    <a href="{{ route('like.store', ['post' => $all->id]) }}"
+                       aria-label="Like this resource: {{ $all->topic }}">
+                        <i class="fas fa-heart" aria-hidden="true"></i> Like this resource ({{ $all->likes->count() }} Likes)
+                    </a>
+                </div>
 
             </div>
 
@@ -307,14 +285,14 @@
 
                 <div class="coment-bottom bg-white p-2 px-4">
                     <div class="add-comment-section mt-4 mb-4">
-                        <form action="{{ route('comments.store') }}" method="post">
+                        <form action="{{ route('comments.store') }}" method="post" aria-label="Add a comment form">
                             @csrf()
 
                             <input type="hidden" name="post_id" value={{ $all->id }}>
                             <input type="hidden" name="user_id" value={{ auth()->user() ? auth()->user()->id : 1 }}>
-                            <textarea name="comment" class="form-control mr-3" placeholder="Add comment"></textarea>
+                            <textarea name="comment" class="form-control mr-3" placeholder="Add comment" aria-label="Add your comment"></textarea>
 
-                            <button class="btn btn-primary mt-2 btn-block" type="submit">Comment</button>
+                            <button class="btn btn-primary mt-2 btn-block" type="submit" aria-label="Submit comment">Submit Comment</button>
 
                         </form>
                     </div>
