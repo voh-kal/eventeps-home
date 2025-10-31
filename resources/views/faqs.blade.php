@@ -195,5 +195,5 @@
         });
     });
 </script>
-
+@include('contactformscript')
 @endsection

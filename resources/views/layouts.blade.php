@@ -18,7 +18,8 @@
     <meta name="google-site-verification" content="9JWgSGO6IMnxUTWCYZNKrYLqlOT8v0y7AN2EbVVZ8LA" />
     <!-- Canonical URL to prevent duplicate content issues -->
     <link rel="canonical" href="{{ url()->current() }}" />
-
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('meta', '')
     @yield('schema', '')
 
