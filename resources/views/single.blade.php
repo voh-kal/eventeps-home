@@ -209,7 +209,45 @@
         }
     }
 </style>
+<style>
+    .content-wrapper {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
 
+    .article-content {
+        width: 100%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
+
+    .article-content p {
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+        text-align: justify;
+    }
+
+    .article-content img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 2rem auto;
+    }
+
+    @media (max-width: 768px) {
+        .content-wrapper {
+            padding: 0 10px;
+        }
+
+        .article-content p {
+            text-align: left;
+        }
+    }
+</style>
 <!-- Hero Section -->
 <section class="hero-section-single ">
     <!-- Main Navigation -->
@@ -249,15 +287,20 @@
         <div class="row">
             <div class="col-md-12 mt-2 mb-2">
                 <img src="{{env('TEPS')}}/storage/assets/images/{{$all->image}}"
-                     alt="Image for {{ $all->topic }} resource"
-                     class="img-fluid"
-                     aria-label="Image for {{ $all->topic }} resource">
+                    alt="Image for {{ $all->topic }} resource"
+                    class="img-fluid"
+                    aria-label="Image for {{ $all->topic }} resource">
             </div>
             <div class="col-xs-12 col-lg-12 mb-4 mt-4">
-                <p style="text-align: justify;">{!!$all->description!!}</p>
+                <div class="content-wrapper">
+                    <div class="article-content">
+                        {!!$all->description!!}
+                    </div>
+                </div>
             </div>
-
         </div>
+
+
     </div>
 
     <hr />
@@ -267,7 +310,7 @@
             <div class="share-window row mx-auto">
                 <div class="trigger mx-2 like-btn">
                     <a href="{{ route('like.store', ['post' => $all->id]) }}"
-                       aria-label="Like this resource: {{ $all->topic }}">
+                        aria-label="Like this resource: {{ $all->topic }}">
                         <i class="fas fa-heart" aria-hidden="true"></i> Like this resource ({{ $all->likes->count() }} Likes)
                     </a>
                 </div>

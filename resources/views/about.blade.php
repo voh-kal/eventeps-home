@@ -42,7 +42,7 @@
         </h5>
 
         <div>
-            <h4 class="sectionH4 col-md-7 mb-4">Where  <span>Passion</span> for Events Meets <span>Innovation</span>.</h4>
+            <h5 class="sectionH4 col-md-7 mb-4">Where  <span>Passion</span> for Events Meets <span>Innovation</span>.</h5>
         </div>
     </div>
     <section class="container">
@@ -101,8 +101,8 @@
         </h5>
 
         <div>
-           
-            <h4 class="sectionH4 col-md-7 mb-4"><span>Guiding</span> Every <span>Event</span> with Purpose</h4>
+
+            <h5 class="sectionH4 col-md-7 mb-4"><span>Guiding</span> Every <span>Event</span> with Purpose</h5>
             <p class="col-md-10 sectionP">At TEPS, our core values drive everything we do. We are committed to:</p>
         </div>
     </div>
