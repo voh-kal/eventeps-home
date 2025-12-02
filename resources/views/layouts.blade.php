@@ -107,6 +107,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
       
         #mainNavbar {
@@ -1195,6 +1197,51 @@
         });
     </script>
 
+    <!-- Zoho Form Modal -->
+    <div class="modal fade" id="zohoFormModal" tabindex="-1" aria-labelledby="zohoFormModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="zohoFormModalLabel">Get Started with TEPS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="zohoFormContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load form when modal opens
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('zohoFormModal');
+            if (modal) {
+                modal.addEventListener('show.bs.modal', function() {
+                    loadZohoFormInModal();
+                });
+            }
+        });
+
+        function loadZohoFormInModal() {
+            const container = document.getElementById('zohoFormContainer');
+            if (!container) return;
+
+            // Clear any existing content
+            container.innerHTML = '';
+
+            // Create an iframe to load the Zoho form
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://crm.zoho.com/crm/WebFormServeServlet?rid=defa50f4e4a0eaf79a45e679f23fd0290f936c886c25f83f54feb575c3676f39dc527d62461617db0ce3d247e379f285gid8da87f8451f56c791fca0516c7f7a37099feca6b6fbfbbd6bfed652a357f48a1';
+            iframe.width = '100%';
+            iframe.height = '500';
+            iframe.frameBorder = '0';
+            iframe.style.border = 'none';
+            iframe.setAttribute('allowtransparency', 'true');
+            
+            container.appendChild(iframe);
+        }
+    </script>
 
 </body>
 

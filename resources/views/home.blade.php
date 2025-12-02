@@ -266,7 +266,7 @@
                 </div>
             </div>
             <div class="col my-5 text-center">
-                <a href="/get-started" class="get_started btn-md mx-auto" target="_blank" aria-label="get started with TEPS">Get started</a>
+                <a href="#" class="get_started btn-md mx-auto" data-bs-toggle="modal" data-bs-target="#zohoFormModal" aria-label="get started with TEPS">Get started</a>
             </div>
         </div>
     </div>
@@ -336,7 +336,7 @@
                         </div>
 
                         <div class="col text-left">
-                            <a href="/get-started" class="get_started btn-md mx-auto" target="_blank" aria-label="get started with TEPS">Get started</a>
+                            <a href="#" class="get_started btn-md mx-auto" data-bs-toggle="modal" data-bs-target="#zohoFormModal" aria-label="get started with TEPS">Get started</a>
                         </div>
                     </div>
                 </div>
@@ -404,7 +404,7 @@
                             </div>
                         </div>
 
-                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" target="_blank" aria-label="get started with TEPS">Get started</a>
+                        <a href="#" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" data-bs-toggle="modal" data-bs-target="#zohoFormModal" aria-label="get started with TEPS">Get started</a>
 
                     </div>
                 </div>
@@ -455,7 +455,8 @@
                                 <p>Provide Helpdesk Support: Assist attendees with helpdesk services throughout the event.</p>
                             </div>
                         </div>
-                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" target="_blank" aria-label="get started with TEPS">Get started</a>
+                        <a href="#" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" data-bs-toggle="modal" data-bs-target="#zohoFormModal" aria-label="get started with TEPS">Get started</a>
+
 
                     </div>
                 </div>
@@ -475,7 +476,7 @@
 
 
 <!-- video section -->
- @include('videosection')
+@include('videosection')
 
 
 
@@ -544,7 +545,7 @@
                 <p style="font-size:20px;font-weight:400;color:#6C747D" class="col-md-11">Feel free to reach out to us if you have more questions for us.</p>
                 <div class="my-3">
                     <a href="#" class="m-0 get_started btn-md" data-bs-toggle="modal" data-bs-target="#contactModal" aria-label="Open contact form modal">Contact Us <img src="/images/arrow.png" alt="contact us" class="img-fluid" width="16" height="16"></a>
-                  @include('contactmodal')
+                    @include('contactmodal')
 
                 </div>
             </div>

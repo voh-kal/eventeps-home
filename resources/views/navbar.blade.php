@@ -37,7 +37,7 @@
             </ul>
 
             <div class="d-flex">
-                <a href="{{ url('/get-started') }}" class="btn btn_outline_light btn-md me-2" target="_blank" aria-label="Get started with TEPS">
+                <a href="#" class="btn btn_outline_light btn-md me-2" data-bs-toggle="modal" data-bs-target="#zohoFormModal" aria-label="Get started with TEPS">
                     <span aria-label="Get started with TEPS">Get Started</span>
                 </a>
                 <a href="https://app.eventeps.com/" class="btn btn_primary btn-md" target="_blank" aria-label="Login to TEPS event management platform">

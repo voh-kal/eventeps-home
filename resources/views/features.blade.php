@@ -230,7 +230,7 @@
             </div>
             <div class="col my-5 text-center">
 
-                <a href="/get-started" class="get_started col-md-2" target="_blank">Get started</a>
+                <a href="#" class="get_started col-md-2" data-bs-toggle="modal" data-bs-target="#zohoFormModal">Get started</a>
             </div>
         </div>
     </div>
@@ -300,7 +300,7 @@
                         </div>
 
 
-                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" target="_blank">Get started</a>
+                        <a href="#" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" data-bs-toggle="modal" data-bs-target="#zohoFormModal">Get started</a>
 
                     </div>
                 </div>
@@ -368,7 +368,7 @@
                             </div>
                         </div>
 
-                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" target="_blank">Get started</a>
+                        <a href="#" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" data-bs-toggle="modal" data-bs-target="#zohoFormModal">Get started</a>
                     </div>
                 </div>
             </div>
@@ -419,7 +419,7 @@
                             </div>
                         </div>
 
-                        <a href="/get-started" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" target="_blank">Get started</a>
+                        <a href="#" class="get_started mx-0 col-md-4" style="padding: 10px;margin:0px" data-bs-toggle="modal" data-bs-target="#zohoFormModal">Get started</a>
                     </div>
                 </div>
             </div>
@@ -434,7 +434,5 @@
         </div>
     </div>
 </section>
-
-
 
 @endsection
