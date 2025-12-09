@@ -184,6 +184,11 @@ class HomeController extends Controller
         }
     }
 
+    public function privacy()
+    {
+        return view('privacy');
+    }
+
     public function use_cases()
     {
         $resources = Resource::take(4)->get();

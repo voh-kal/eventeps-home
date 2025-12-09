@@ -20,4 +20,5 @@ Route::post('/api/event-registration', [HomeController::class, 'store']);
     Route::get('/widget', [HomeController::class, 'widget'])->name('widget');
 Route::post('/comments', [CommentsController::class, 'store'])->name('comments.store');
 Route::get('/like/{post}', [LikesController::class, 'likePost'])->name('like.store');
+Route::get('/privacy', [HomeController::class, 'privacy']);
 
